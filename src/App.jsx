@@ -1,5 +1,5 @@
 import "./assets/output.css"
-// import { useRef, useState } from "react";
+import { useEffect } from "react";
 import Routes from "./routes/index"
 import axios from "axios";
 import Loading from "./components/common/Loading";

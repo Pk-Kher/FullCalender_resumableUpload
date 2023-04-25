@@ -1,13 +1,20 @@
+import axios from 'axios';
 import { Formik, Form } from 'formik';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from "yup"
 import Input from '../components/formComponent/Input';
+import Csrf from "../api/Csrf";
 
 const Login: React.FC = () => {
     const loginHandler = (values: { email: string, password: string }, actions: any) => {
-        console.log(values, actions);
+        Csrf().then(response => {
+            axios.post<{ email: string, password: string, remember: string }>('api/login', values).then((response) => {
+                console.log(response);
+            }).catch(error => {
 
+            });
+        })
     }
     const validations = Yup.object({
         email: Yup.string().required('User name is required.'),

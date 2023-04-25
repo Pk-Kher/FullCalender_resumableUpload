@@ -1,0 +1,5 @@
+build project:
+  image: node:18.16.0
+  script:
+    -npm install
+    -npm build
