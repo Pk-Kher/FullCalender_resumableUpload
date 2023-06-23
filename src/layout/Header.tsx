@@ -1,7 +1,9 @@
+//@ts-nocheck
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from '../hooks';
+import i18next from 'i18next';
 const Header: React.FC = () => {
     const location = useLocation();
     const pathName = location?.pathname?.toLowerCase();
@@ -19,6 +21,7 @@ const Header: React.FC = () => {
         getCategory();
     }, []);
 
+    const [openModal, setOpenModal] = useState(true);
     return (
         <section className='bg-white sticky top-0 z-50'>
             <div className="container mx-auto">
@@ -32,7 +35,7 @@ const Header: React.FC = () => {
                                 </button>
                             </div>
                             <div className="md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-                                <NavLink to="/" className={`p-2 lg:px-4 md:mx-2 rounded ${pathName !== '/' ? 'hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300' : 'bg-indigo-600 text-white'}`}>Home</NavLink>
+                                <NavLink to="/" className={`p-2 lg:px-4 md:mx-2 rounded ${pathName !== '/' ? 'hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300' : 'bg-indigo-600 text-white'}`}>{'Home'}</NavLink>
                                 <NavLink to="/about" className={`p-2 lg:px-4 md:mx-2 rounded ${pathName !== '/about' ? 'hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300' : 'bg-indigo-600 text-white'}`}>About</NavLink>
                                 <NavLink to="/features" className={`p-2 lg:px-4 md:mx-2 rounded ${pathName !== '/features' ? 'hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300' : 'bg-indigo-600 text-white'}`}>Features</NavLink>
                                 <NavLink to="/pricing" className={`p-2 lg:px-4 md:mx-2 rounded ${pathName !== '/pricing' ? 'hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300' : 'bg-indigo-600 text-white'}`}>Pricing</NavLink>

@@ -1,10 +1,17 @@
 import "./assets/output.css"
+import "@syncfusion/ej2-base/styles/material.css";
+import "@syncfusion/ej2-buttons/styles/material.css";
+import "@syncfusion/ej2-react-inputs/styles/material.css";
+
 import { useEffect } from "react";
 import Routes from "./routes/index"
 import axios from "axios";
 import Loading from "./components/common/Loading";
 import { useDispatch, useSelector } from "./hooks";
 import { setLoading } from "./redux/Loading";
+import { registerLicense } from '@syncfusion/ej2-base';
+
+registerLicense('Mgo+DSMBaFt+QHJqVk1nQ1BCaV1CX2BZe1l1QGlZfE4BCV5EYF5SRHBeS11jSn5Qc0RqWH8=;Mgo+DSMBPh8sVXJ1S0R+X1pDaV5EQmFJfFBmQGlaelRwd0U3HVdTRHRcQltiQH5TdUVgXH1fdXQ=;ORg4AjUWIQA/Gnt2VFhiQlJPcUBDW3xLflF1VWZTfFt6dFZWESFaRnZdQV1lSHdTdkZjWnpcc3JV;MjQ1NzkyN0AzMjMxMmUzMDJlMzBWY1pRcGxXZzZhdUNBOE5Xd0FqWEZLRnQ2WG1mQkNvNzBKNEZ5a1dtN1BFPQ==;MjQ1NzkyOEAzMjMxMmUzMDJlMzBVR203LytGeml2Y3ZNRlNVWVF5TmNRUjVic0s5eTBsUVYyRzViblp0RDhJPQ==;NRAiBiAaIQQuGjN/V0d+Xk9HfVhdXGVWfFN0RnNcdV11flVFcC0sT3RfQF5jT39adkVgWXxbc3VcRg==;MjQ1NzkzMEAzMjMxMmUzMDJlMzBGT1lDeWhhbWV2SHlJL245V0x3dko2a0NnVTZyT1RpVTFSaEJLTHNCUVhJPQ==;MjQ1NzkzMUAzMjMxMmUzMDJlMzBSd21pcHNxNEJXcHRFUkZGRGkyODkrbUJlTXVSZTRYYWJxbTlQdkNhUnFVPQ==;Mgo+DSMBMAY9C3t2VFhiQlJPcUBDW3xLflF1VWZTfFt6dFZWESFaRnZdQV1lSHdTdkZjWnpacHJV;MjQ1NzkzM0AzMjMxMmUzMDJlMzBMVVJ5OURtS3lYdGRONUp0TnFJVjJVRHhWUTJ6QTcrT21aMWM5NFRLZjNBPQ==;MjQ1NzkzNEAzMjMxMmUzMDJlMzBJeWZZZDRsTk9lMWtBQjlaMW1TbkRWMzlBVVVQWUlQNlRCb3dNeit2REc0PQ==;MjQ1NzkzNUAzMjMxMmUzMDJlMzBGT1lDeWhhbWV2SHlJL245V0x3dko2a0NnVTZyT1RpVTFSaEJLTHNCUVhJPQ==');
 
 function App() {
 	const loading = useSelector(store => store?.Loading);
